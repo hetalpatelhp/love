@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1920x1080/?love,romantic') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            background-color: #ff4d6d;
+            color: white;
+            transition: 0.3s;
+            display: none;
+        }
+        button:hover {
+            background-color: #ff1e4d;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To My Loving Gugu ❤️</h1>
+        <p>You are not just my love, but my heart, my soul, and my forever home. Every moment with you is a blessing, and I cherish you more than words can say.</p>
+        <p>Thank you for being my rock, my laughter, and my greatest love story. I promise to love you endlessly, today and always. 💖</p>
+        <div class="button-container">
+            <button id="mainButton" onclick="playAudioWithMessage('loveAudio', 'button1', 'Every moment with you is a beautiful memory! ❤️')">Click to Feel My Love</button>
+            <audio id="loveAudio" onended="showButton('button1')">
+                <source src="feel my love 1.opus" type="audio/mp3">
+            </audio>
+            
+            <button id="button1" onclick="playAudioWithMessage('audio1', 'button2', 'Every heartbeat of mine whispers your name! ❤️')">More Love</button>
+            <audio id="audio1" onended="showButton('button2')">
+                <source src="more love.opus" type="audio/mp3">
+            </audio>
+            
+            <button id="button2" onclick="playAudioWithMessage('audio2', 'button3', 'You are my sunshine in every storm! ☀️')">Special Moment</button>
+            <audio id="audio2" onended="showButton('button3')">
+                <source src="special movement.opus" type="audio/mp3">
+            </audio>
+            
+            <button id="button3" onclick="playAudioWithMessage('audio3', 'loveLetterButton', 'You complete me in every way! 💖')">You & Me</button>
+            <audio id="audio3" onended="showButton('loveLetterButton')">
+                <source src="you & me.opus" type="audio/mp3">
+            </audio>
+
+            <button id="loveLetterButton" onclick="openLoveLetter()" style="display: none;">Read My Love Letter</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("mainButton").style.display = "block";
+
+        function playAudioWithMessage(audioId, nextButtonId, message) {
+            var audio = document.getElementById(audioId);
+            if (audio) {
+                audio.play();
+                audio.onended = function() {
+                    alert(message);
+                    showButton(nextButtonId);
+                };
+            }
+        }
+
+        function showButton(buttonId) {
+            if (buttonId) {
+                document.getElementById(buttonId).style.display = "block";
+            }
+        }
+
+        function openLoveLetter() {
+            alert("My Love,\n\nYou are my greatest gift, my deepest love, and my endless joy. Every moment with you is a treasure, every smile of yours a blessing. I promise to cherish you, support you, and love you with all my heart.\n\nForever yours ❤️");
+        }
+    </script>
+</body>
+</html>
